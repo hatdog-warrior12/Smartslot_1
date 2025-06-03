@@ -179,21 +179,19 @@ h2 {
   border-radius: 20px;
   font-weight: 500;
   transition: background 0.3s ease;
-  text-decoration: none;
 }
 
 .join-button:hover {
   background: #540c9c;
 }
 
-/* Auth Pages */
 .auth-container {
   max-width: 400px;
   margin: 5rem auto;
-  background-color: white;
   padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
@@ -209,28 +207,20 @@ h2 {
 }
 
 .auth-container input {
-  width: 100%;
-  margin: 0.75rem 0;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
 }
 
-.auth-container input:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.2);
-}
-
 .auth-container button {
-  background-color: var(--purple);
+  padding: 0.75rem;
+  background: var(--purple);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .auth-container a {
@@ -238,17 +228,10 @@ h2 {
   text-decoration: none;
 }
 
-.auth-container button:hover {
-  background-color: #540c9c;
+.auth-container a:hover {
+  text-decoration: underline;
 }
 
-#error-message {
-  color: red;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-
-/* Join Page Role Options */
 .role-options {
   display: flex;
   flex-direction: column;
@@ -293,91 +276,9 @@ h2 {
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  text-align: center;
   transition: background 0.3s ease;
-}
-
-.role-button:visited {
-  color: white; /* Ensures visited state stays visible */
 }
 
 .role-button:hover {
   background-color: #540c9c;
-}
-
-.auth-container {
-  max-width: 400px;
-  margin: 5rem auto;
-  padding: 2rem;
-  background: white;
-  color: var(--text);
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  border-radius: 12px;
-  text-align: center;
-}
-
-.auth-container input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.auth-container button {
-  width: 100%;
-}
-
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--purple);
-  color: white;
-  padding: 1rem 2rem;
-}
-
-.dashboard-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.dashboard-content {
-  padding: 2rem;
-}
-
-.slot-card {
-  background-color: #fff;
-  border: 1px solid #e3e3e3;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-}
-
-.slot-card h3 {
-  margin-top: 0;
-}
-
-.search-section {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.search-section input {
-  flex-grow: 1;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.edit-button {
-  background-color: var(--yellow);
-  color: black;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
 }
