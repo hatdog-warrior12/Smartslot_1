@@ -1,80 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SmartSlot - Host Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="page-enter">
-  <!-- Navigation Bar -->
-  <header class="navbar">
-    <div class="container">
-      <div class="logo">SmartSlot</div>
-      <div class="profile-menu">
-        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon" onclick="toggleDropdown()" />
-        <div class="dropdown-menu" id="dropdownMenu">
-          <a href="#">Profile</a>
-          <a href="#">Settings</a>
-          <a href="#" onclick="logout()">Log out</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Host Dashboard -->
-  <main class="dashboard">
-    <h1>Welcome, Host!</h1>
-
-    <div class="dashboard-grid">
-      <!-- Manage Listings -->
-      <div class="card">
-        <h2>Your Listings</h2>
-        <p>View and manage your active parking spaces.</p>
-        <button onclick="window.location.href='#'">Manage Listings</button>
-      </div>
-
-      <!-- Add New Slot -->
-      <div class="card">
-        <h2>Add Parking Slot</h2>
-        <p>Post a new parking slot for seekers to find.</p>
-        <button onclick="window.location.href='#'">Add Slot</button>
-      </div>
-
-      <!-- Booking Requests -->
-      <div class="card">
-        <h2>Booking Requests</h2>
-        <p>View pending booking requests from users.</p>
-        <button onclick="window.location.href='#'">View Requests</button>
-      </div>
-
-      <!-- Earnings Summary -->
-      <div class="card">
-        <h2>Earnings</h2>
-        <p>Check your total earnings and payment status.</p>
-        <button onclick="window.location.href='#'">View Earnings</button>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    function toggleDropdown() {
-      document.getElementById("dropdownMenu").classList.toggle("show");
-    }
-
-    window.onclick = function(e) {
-      if (!e.target.matches('.profile-icon')) {
-        const dropdown = document.getElementById("dropdownMenu");
-        if (dropdown && dropdown.classList.contains('show')) {
-          dropdown.classList.remove('show');
-        }
-      }
-    };
-
-    function logout() {
-      // Firebase or redirect logout logic
-      window.location.href = "login-host.html";
-    }
-  </script>
-</body>
-</html>
+<h1>Welcome, Host!</h1>
+<a href="#" onclick="logout()">Logout</a>
+<script>
+  function logout() {
+    firebase.auth().signOut().then(() => {
+      window.location.href = 'host-login.html';
+    });
+  }
+</script>

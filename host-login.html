@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Host Login – SmartSlot</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    // TODO: Replace with your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCrSY2YZHe5d8m0Kbween9DYRWTs1TYi1I",
+      authDomain: "smartslot-a0394.firebaseapp.com",
+      databaseURL: "https://smartslot-a0394-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "smartslot-a0394",
+      storageBucket: "smartslot-a0394.firebasestorage.app",
+      messagingSenderId: "725888200248",
+      appId: "1:725888200248:web:976cbd16c353d7347d00cd"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+</head>
+<body>
+  <div class="page-loader" id="loader"></div>
+
+  <div class="auth-container fade-in">
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Login to manage your listed parking spaces</p>
+
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit" class="cta-button">Log In</button>
+    </form>
+
+    <p class="switch-link">Don’t have an account? <a href="host-signup.html">Sign up here</a></p>
+  </div>
+
+  <script type="module" src="auth.js"></script>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').classList.add('hidden');
+    });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', e => {
+        const href = link.getAttribute('href');
+        if (!href.startsWith("#") && !link.hasAttribute("target")) {
+          e.preventDefault();
+          document.getElementById('loader').classList.remove('hidden');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300); // short delay for animation
+        }
+      });
+    });
+  </script>
+</body>
+</html>

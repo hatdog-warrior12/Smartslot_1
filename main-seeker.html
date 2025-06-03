@@ -1,83 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SmartSlot - Find Parking</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="page-enter">
-  <!-- Top Navigation Bar -->
-  <header class="navbar">
-    <div class="container">
-      <div class="logo">SmartSlot</div>
-      <div class="profile-menu">
-        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Profile" class="profile-icon" onclick="toggleDropdown()" />
-        <div class="dropdown-menu" id="dropdownMenu">
-          <a href="#">Profile</a>
-          <a href="#">Settings</a>
-          <a href="#" onclick="logout()">Log out</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Dashboard -->
-  <div class="dashboard">
-    <div class="search-bar">
-      <input type="text" id="locationInput" placeholder="Search parking near Taft Avenue" />
-      <button onclick="searchParking()">Search</button>
-    </div>
-
-    <div id="results" class="results">
-      <!-- Search results will populate here -->
-    </div>
-  </div>
-
-  <script>
-    const sampleSlots = [
-      { title: 'Dela Rosa Parking Lot', price: '₱50/hr', rating: 4.5, type: 'Covered' },
-      { title: 'Zobel Street Garage', price: '₱40/hr', rating: 4.2, type: 'Open Space' },
-      { title: 'SM Taft Basement', price: '₱60/hr', rating: 4.8, type: 'Underground' },
-      { title: 'Malate Pay Parking', price: '₱45/hr', rating: 4.0, type: 'Open Space' },
-      { title: 'Rizal Avenue Secure Lot', price: '₱55/hr', rating: 4.6, type: 'Gated' }
-    ];
-
-    function searchParking() {
-      const container = document.getElementById('results');
-      container.innerHTML = '';
-
-      sampleSlots.forEach((slot, i) => {
-        const card = document.createElement('div');
-        card.className = 'card slide-up';
-        card.style.animationDelay = `${0.1 * i}s`;
-        card.innerHTML = `
-          <h3>${slot.title}</h3>
-          <p class="price">${slot.price}</p>
-          <p class="rating">⭐ ${slot.rating}</p>
-          <p>Type: ${slot.type}</p>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    function toggleDropdown() {
-      document.getElementById("dropdownMenu").classList.toggle("show");
-    }
-
-    window.onclick = function(e) {
-      if (!e.target.matches('.profile-icon')) {
-        const dropdown = document.getElementById("dropdownMenu");
-        if (dropdown.classList.contains('show')) {
-          dropdown.classList.remove('show');
-        }
-      }
-    };
-
-    function logout() {
-      // Firebase or redirect logout logic
-      window.location.href = "login-seeker.html";
-    }
-  </script>
-</body>
-</html>
+<h1>Welcome, Seeker!</h1>
+<a href="#" onclick="logout()">Logout</a>
+<script>
+  function logout() {
+    firebase.auth().signOut().then(() => {
+      window.location.href = 'seeker-login.html';
+    });
+  }
+</script>

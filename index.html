@@ -8,105 +8,143 @@
 </head>
 <body>
 
-  <div id="loader"></div>
-  
-  <div class="page-enter">
-    <header class="navbar slide-up">
-      <div class="container">
-        <div class="logo">SmartSlot</div>
-        <nav>
-          <ul>
-              <li><a href="#how-it-works">How It Works</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#download">App</a></li>
-              <li><a href="join.html" class="join-button">Join</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <section class="hero slide-up">
-      <div class="container">
-        <h1>Effortless Parking at Your Fingertips</h1>
-        <p>Discover and book parking spaces with ease. Anytime. Anywhere.</p>
-        <a href="#download" class="cta-button">Get the App</a>
-      </div>
-    </section>
-
-    <section id="how-it-works" class="section light slide-up">
-      <div class="container">
-        <h2>How It Works</h2>
-        <div class="steps">
-          <div class="step">
-            <h3>Search</h3>
-            <p>Find available parking spaces near your destination in real time.</p>
-          </div>
-          <div class="step">
-            <h3>Book</h3>
-            <p>Choose the perfect spot for your vehicle and confirm instantly.</p>
-          </div>
-          <div class="step">
-            <h3>Park</h3>
-            <p>Navigate to your reserved space and park stress-free.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="section slide-up">
-      <div class="container">
-        <h2>Designed for Seamless Mobility</h2>
-        <ul class="features-list">
-          <li>Real-time availability and dynamic pricing</li>
-          <li>Trusted reviews and host ratings</li>
-          <li>Secure digital payments</li>
-          <li>List your own spaces as a host</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="download" class="section highlight slide-up">
-      <div class="container">
-        <h2>SmartSlot is Coming Soon</h2>
-        <p>Available soon on iOS and Android. Join the waitlist or follow our updates.</p>
-        <div class="download-buttons">
-          <button onclick="window.open('https://www.apple.com/app-store/', '_blank')">App Store</button>
-          <button onclick="window.open('https://play.google.com/store', '_blank')">Google Play</button>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer slide-up">
-      <div class="container">
-        <p>&copy; 2025 SmartSlot. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
-    </footer>
+  <div id="loader">
+    <div class="spinner"></div>
   </div>
+
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">SmartSlot</div>
+      <nav>
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">App</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Effortless Parking at Your Fingertips</h1>
+      <p>Discover and book parking spaces with ease. Anytime. Anywhere.</p>
+      
+      <a href="join.html" class="cta-button">Get Started</a>
+      <a href="#download" class="cta-button">Get the App</a>
+    </div>
+  </section>
+
+  <section class="section light reveal" id="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Search</h3>
+          <p>Find available parking spaces near your destination in real time.</p>
+        </div>
+        <div class="step">
+          <h3>Book</h3>
+          <p>Choose the perfect spot for your vehicle and confirm instantly.</p>
+        </div>
+        <div class="step">
+          <h3>Park</h3>
+          <p>Navigate to your reserved space and park stress-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Designed for Seamless Mobility</h2>
+      <ul class="features-list">
+        <li>Real-time availability and dynamic pricing</li>
+        <li>Trusted reviews and host ratings</li>
+        <li>Secure digital payments</li>
+        <li>List your own spaces as a host</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="download" class="section highlight">
+    <div class="container">
+      <h2>SmartSlot is Coming Soon</h2>
+      <p>Available soon on iOS and Android. Join the waitlist or follow our updates.</p>
+      <div class="download-buttons">
+        <button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">App Store</a></button>
+        <button><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Google Play</a></button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 SmartSlot. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(reveal => observer.observe(reveal));
+</script>
 
 </body>
 
 <script>
-  window.addEventListener("load", function () {
+  // Page load animation
+  window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
-    loader.style.display = "none";
+    loader.classList.add("fade-out");
+
+    // Fade-in entire body
+    document.body.classList.add("fade-in");
   });
 
-  // Optional: Add fade effect when clicking links
-  document.querySelectorAll("a[href]").forEach(link => {
-    link.addEventListener("click", e => {
-      const href = link.getAttribute("href");
-      if (!href.startsWith("#") && !href.startsWith("mailto:")) {
-        e.preventDefault();
-        document.getElementById("loader").style.display = "flex";
-        setTimeout(() => {
-          window.location.href = href;
-        }, 300);
-      }
+  // Smooth link transitions
+  document.querySelectorAll("a[href^='#'], a[href]").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href.startsWith("#")) return; // Don't animate anchor links
+
+      e.preventDefault();
+      const loader = document.getElementById("loader");
+      loader.classList.remove("fade-out");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400); // wait for fade-in effect
+    });
+  });
+
+  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      const offset = 80; // adjust based on your nav height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = target.getBoundingClientRect().top;
+      const targetPosition = elementRect - bodyRect - offset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
     });
   });
 </script>
