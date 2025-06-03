@@ -3,17 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Login as Seeker - SmartSlot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="auth-container">
-    <h2>Login – Seeker</h2>
-    <form>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Log In</button>
-      <p>Don't have an account? <a href="signup-seeker.html">Sign up</a></p>
+
+  <div id="loader"></div>
+
+  <div class="auth-container page-enter">
+    <h2 class="slide-up">Login – Seeker</h2>
+    <form id="demo-seeker-login-form">
+      <input type="email" placeholder="Email" required class="slide-up">
+      <input type="password" placeholder="Password" required class="slide-up">
+      <button type="submit" class="slide-up">Log In</button>
+      <p class="slide-up">
+        Don't have an account? <a href="signup-seeker.html">Sign up</a>
+      </p>
     </form>
   </div>
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.style.display = "none";
+  });
+
+  // Optional: Add fade effect when clicking links
+  document.querySelectorAll("a[href]").forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (!href.startsWith("#") && !href.startsWith("mailto:")) {
+        e.preventDefault();
+        document.getElementById("loader").style.display = "flex";
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      }
+    });
+  });
+
+  // Simulated login-to-dashboard redirect
+  document.getElementById("demo-seeker-login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("loader").style.display = "flex";
+    setTimeout(() => {
+      window.location.href = "main-seeker.html";
+    }, 500);
+  });
+</script>
+
 </body>
 </html>

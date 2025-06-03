@@ -3,18 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign Up as Seeker - SmartSlot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="auth-container">
-    <h2>Sign Up – Seeker</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Create Account</button>
-      <p>Already have an account? <a href="login-seeker.html">Log in</a></p>
+
+  <div id="loader"></div>
+
+  <div class="auth-container page-enter">
+    <h2 class="slide-up">Sign Up – Seeker</h2>
+    <form id="demo-signup-seeker-form">
+      <input type="text" placeholder="Full Name" required class="slide-up">
+      <input type="email" placeholder="Email" required class="slide-up">
+      <input type="password" placeholder="Password" required class="slide-up">
+      <button type="submit" class="slide-up">Create Account</button>
+      <p class="slide-up">
+        Already have an account? <a href="login-seeker.html">Log in</a>
+      </p>
     </form>
   </div>
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.style.display = "none";
+  });
+
+  // Optional: Add fade effect when clicking links
+  document.querySelectorAll("a[href]").forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (!href.startsWith("#") && !href.startsWith("mailto:")) {
+        e.preventDefault();
+        document.getElementById("loader").style.display = "flex";
+        setTimeout(() => {
+          window.location.href = href;
+        }, 300);
+      }
+    });
+  });
+
+  // Simulated signup-to-dashboard redirect
+  document.getElementById("demo-signup-seeker-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("loader").style.display = "flex";
+    setTimeout(() => {
+      window.location.href = "main-seeker.html";
+    }, 500);
+  });
+</script>
+
 </body>
 </html>

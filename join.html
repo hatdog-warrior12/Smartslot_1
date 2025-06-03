@@ -8,12 +8,16 @@
 </head>
 <body>
 
-  <div class="join-container">
+  <!-- Page Loader -->
+  <div id="loader"></div>
+
+  <!-- Main Page Content -->
+  <div class="join-container page-enter">
     <h1>Join SmartSlot</h1>
     <p>Choose your journey: Are you looking for a parking space, or do you have one to share?</p>
 
     <div class="role-options">
-      <div class="role-card">
+      <div class="role-card slide-up">
         <h2>I'm a Seeker</h2>
         <p>Find and reserve available parking spots quickly and easily.</p>
         <div class="role-buttons">
@@ -22,7 +26,7 @@
         </div>
       </div>
 
-      <div class="role-card">
+      <div class="role-card slide-up">
         <h2>I'm a Host</h2>
         <p>List your unused parking space and start earning effortlessly.</p>
         <div class="role-buttons">
@@ -32,6 +36,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Loader Script -->
+  <script>
+    window.addEventListener("load", function () {
+      document.getElementById("loader").style.display = "none";
+    });
+
+    // Fade-in loader when navigating away
+    document.querySelectorAll("a[href]").forEach(link => {
+      link.addEventListener("click", e => {
+        const href = link.getAttribute("href");
+        if (!href.startsWith("#") && !href.startsWith("mailto:") && !href.startsWith("javascript:")) {
+          e.preventDefault();
+          document.getElementById("loader").style.display = "flex";
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300); // Short delay for animation
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
