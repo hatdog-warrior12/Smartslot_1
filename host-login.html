@@ -6,14 +6,19 @@
   <title>Host Login – SmartSlot</title>
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Firebase SDKs: LOAD THESE FIRST -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+  <!-- Your Firebase Config: AFTER SDKs -->
   <script>
-    // TODO: Replace with your Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyCrSY2YZHe5d8m0Kbween9DYRWTs1TYi1I",
       authDomain: "smartslot-a0394.firebaseapp.com",
       databaseURL: "https://smartslot-a0394-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "smartslot-a0394",
-      storageBucket: "smartslot-a0394.firebasestorage.app",
+      storageBucket: "smartslot-a0394.appspot.com",
       messagingSenderId: "725888200248",
       appId: "1:725888200248:web:976cbd16c353d7347d00cd"
     };
