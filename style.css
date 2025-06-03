@@ -271,17 +271,18 @@ h2 {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   background-color: var(--purple);
-  color: white; /* 🔥 This ensures visibility */
+  color: white; /* ← this is the fix */
   border: none;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  text-align: center;
   transition: background 0.3s ease;
+  text-align: center;
 }
 
+
 .role-button:hover {
-  background-color: #540c9c;
+  background-color: white;
 }
 
 .role-button:visited {
