@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartSlot Seeker Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script type="module" src="main-seeker.js" defer></script>
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1>SmartSlot</h1>
+    <button id="logout-button" class="role-button">Logout</button>
+  </header>
+  <main class="dashboard-content">
+    <h2>Welcome, Seeker!</h2>
+    <p>Search for parking spaces in your area:</p>
+
+    <div class="search-section">
+      <input type="text" placeholder="Search by location..." />
+      <button class="role-button">Search</button>
+    </div>
+
+    <div class="available-slots">
+      <div class="slot-card">
+        <h3>Downtown Lot</h3>
+        <p>456 City Center Blvd</p>
+        <p>Available: Yes</p>
+        <button class="role-button">Book Now</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- login-seeker.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seeker Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="login-seeker.js" defer></script>
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Login as Seeker</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="loginSeeker()">Log In</button>
+    <p id="error-message"></p>
+    <p>Don't have an account? <a href="signup-seeker.html">Sign up</a></p>
+  </div>
+</body>
+</html>
