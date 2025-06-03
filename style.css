@@ -283,6 +283,6 @@ h2 {
   background-color: #540c9c;
 }
 
-.role-button:hover {
-  background-color: #540c9c;
+.role-button:visited {
+  color: white;
 }
